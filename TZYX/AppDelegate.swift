@@ -3,7 +3,8 @@
 //  TZYX
 //
 //  Created by Francois W. Nel on 25/10/2015.
-//  Copyright © 2015 Francois W. Nel. All rights reserved.
+//  Open sourced on 15/02/2016.
+//  Creative Commons BY-NC-SA © 2016 Francois W. Nel.
 //
 
 import UIKit

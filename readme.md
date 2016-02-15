@@ -1,8 +1,12 @@
 # TZYX
 
+![Icon](https://raw.githubusercontent.com/francoiswnel/TZYX/master/TZYX/Assets.xcassets/AppIcon.appiconset/icon120.png)
+
 TZYX is a simple stack logic calculator for iOS. The layout and functionality was inspired by the great Hewlett-Packard 42S RPN Scientific calculator, but its functionality has been simplified to that of a standard pocket calculator.
 
 # How It Works
+
+![Interface](https://raw.githubusercontent.com/francoiswnel/TZYX/master/screenshot.jpg)
 
 The calculator makes use of stack logic, or reverse polish notation, for calculations. An explanation of how RPN works is beyond the scope of this readme, but in essence this calculator works similarly to most HP calculators, so if you've used one before, you should be at home with TZYX.
 

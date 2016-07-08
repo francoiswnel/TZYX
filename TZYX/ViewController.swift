@@ -268,7 +268,7 @@ class ViewController: UIViewController {
     }
 
     func pushRegisters() {
-        for (var i = 3; i > 0; i--) {
+        for (var i = 3; i > 0; i -= 1) {
             register[i] = register[i - 1]
         }
     }
@@ -352,12 +352,12 @@ class ViewController: UIViewController {
         intValue = abs(Int(value))
 
         while (intValue >= 10) {
-            charBeforeDec++
+            charBeforeDec += 1
             intValue /= 10
         }
 
         if (value < 0) {
-            charBeforeDec++
+            charBeforeDec += 1
         }
 
         switch charBeforeDec {

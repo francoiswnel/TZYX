@@ -50,99 +50,99 @@ class ViewController: UIViewController {
     @IBOutlet weak var yOutput: UILabel!
     @IBOutlet weak var xOutput: UILabel!
 
-    @IBAction func invertButtonAction(sender: UIButton) {
+    @IBAction func invertButtonAction(_ sender: UIButton) {
         invertX()
     }
 
-    @IBAction func rootButtonAction(sender: UIButton) {
+    @IBAction func rootButtonAction(_ sender: UIButton) {
         doFunction("r")
     }
 
-    @IBAction func powerButtonAction(sender: UIButton) {
+    @IBAction func powerButtonAction(_ sender: UIButton) {
         doFunction("p")
     }
 
-    @IBAction func rollButtonAction(sender: UIButton) {
+    @IBAction func rollButtonAction(_ sender: UIButton) {
         rollRegisters()
     }
 
-    @IBAction func enterButtonAction(sender: UIButton) {
+    @IBAction func enterButtonAction(_ sender: UIButton) {
         inputX()
     }
 
-    @IBAction func swapButtonAction(sender: UIButton) {
+    @IBAction func swapButtonAction(_ sender: UIButton) {
         swapXY()
     }
 
-    @IBAction func clearButtonAction(sender: UIButton) {
+    @IBAction func clearButtonAction(_ sender: UIButton) {
         clearX()
     }
 
-    @IBAction func divButtonAction(sender: UIButton) {
+    @IBAction func divButtonAction(_ sender: UIButton) {
         doFunction("d")
     }
 
-    @IBAction func mtplyButtonAction(sender: UIButton) {
+    @IBAction func mtplyButtonAction(_ sender: UIButton) {
         doFunction("m")
     }
 
-    @IBAction func subButtonAction(sender: UIButton) {
+    @IBAction func subButtonAction(_ sender: UIButton) {
         doFunction("s")
     }
 
-    @IBAction func addButtonAction(sender: UIButton) {
+    @IBAction func addButtonAction(_ sender: UIButton) {
         doFunction("a")
     }
 
-    @IBAction func num1Action(sender: UIButton) {
+    @IBAction func num1Action(_ sender: UIButton) {
         updateInputString("1")
     }
 
-    @IBAction func num2Action(sender: UIButton) {
+    @IBAction func num2Action(_ sender: UIButton) {
         updateInputString("2")
     }
 
-    @IBAction func num3Action(sender: UIButton) {
+    @IBAction func num3Action(_ sender: UIButton) {
         updateInputString("3")
     }
 
-    @IBAction func num4Action(sender: UIButton) {
+    @IBAction func num4Action(_ sender: UIButton) {
         updateInputString("4")
     }
 
-    @IBAction func num5Action(sender: UIButton) {
+    @IBAction func num5Action(_ sender: UIButton) {
         updateInputString("5")
     }
 
-    @IBAction func num6Action(sender: UIButton) {
+    @IBAction func num6Action(_ sender: UIButton) {
         updateInputString("6")
     }
 
-    @IBAction func num7Action(sender: UIButton) {
+    @IBAction func num7Action(_ sender: UIButton) {
         updateInputString("7")
     }
 
-    @IBAction func num8Action(sender: UIButton) {
+    @IBAction func num8Action(_ sender: UIButton) {
         updateInputString("8")
     }
 
-    @IBAction func num9Action(sender: UIButton) {
+    @IBAction func num9Action(_ sender: UIButton) {
         updateInputString("9")
     }
 
-    @IBAction func num0Action(sender: UIButton) {
+    @IBAction func num0Action(_ sender: UIButton) {
         updateInputString("0")
     }
 
-    @IBAction func decButtonAction(sender: UIButton) {
+    @IBAction func decButtonAction(_ sender: UIButton) {
         updateInputString(".")
     }
 
-    @IBAction func posNegButtonAction(sender: UIButton) {
+    @IBAction func posNegButtonAction(_ sender: UIButton) {
         updateInputString("-")
     }
 
-    func doFunction(let selectedFunction: Character) {
+    func doFunction(_ selectedFunction: Character) {
         if (!newInput) {
             register[0] = Double(inputString)!
             inputString = String(format: getStringFormat(register[0]), register[0])
@@ -254,7 +254,7 @@ class ViewController: UIViewController {
         }
         else {
             if (inputString.characters.count > 1) {
-                inputString.removeAtIndex(inputString.endIndex.predecessor())
+                inputString.remove(at: inputString.characters.index(before: inputString.endIndex))
                 xOutput.text = inputString + "_"
             }
             else {
@@ -268,12 +268,12 @@ class ViewController: UIViewController {
     }
 
     func pushRegisters() {
-        for (var i = 3; i > 0; i -= 1) {
+        for i in (1...3).reversed() {
             register[i] = register[i - 1]
         }
     }
 
-    func updateInputString(let numValue: String) {
+    func updateInputString(_ numValue: String) {
         if (numValue == ".") {
             if (newInput) {
                 newInput = false
@@ -307,7 +307,7 @@ class ViewController: UIViewController {
             }
             else if (register[0] != 0) {
                 if (register[0] < 0) {
-                    inputString.removeAtIndex(inputString.startIndex)
+                    inputString.remove(at: inputString.startIndex)
                     register[0] = Double(inputString)!
                 }
                 else {
@@ -344,7 +344,7 @@ class ViewController: UIViewController {
         tOutput.text = String(format: getStringFormat(register[3]), register[3])
     }
 
-    func getStringFormat(let value: Double) -> String {
+    func getStringFormat(_ value: Double) -> String {
         var charBeforeDec: Int
         var intValue: Int
 
